@@ -79,6 +79,20 @@ let teaCaffined ={
         normal:"black",
     },
 }
+let teaDecaffined ={
+    "Lavender Chamomile":{
+        ingredients:"chamomile flowers, lavender buds",
+        taste:" Delightfully floral with distinct lavender notes",
+        benefits:[' stress relief', ' supports sleeping', ' digesttion help'],
+        normal:"lavender chamomile",
+    },
+    "Blood Orange":{
+        ingredients:" apple, rosehips, hibiscus, beet root, orange peel, natural orange flavor, marigold, safflowers",
+        taste:" fresh citrus character with a delicate sweetness reminiscent of freshly squeezed oranges",
+        benefits:[' rich in antioxidants', ' heart health', ' digesttion help'],
+        normal:"blood orange",
+    },
+}
 
 ///127.0.0.1:3001?name=white
 app.get('/',(req,res)=>{
@@ -190,6 +204,40 @@ app.get('/name/:nameInput/pairing', (req, res) => {
     }
 })
 
+//for decaffined tea
+app.get('/:teaInput/taste', (req, res) => {
+    const requestedName = req.params.teaInput
+    const matchingTea = Object.values(teaDecaffined).find(tea => tea.normal ===requestedName)
+
+    if (matchingTea){
+        const teaTaste= matchingTea.taste
+        res.send('The taste of '+`${requestedName}`+' tea is: '+teaTaste)
+    }else{
+        res.send("Tea not found with the specified name")
+    }
+})
+app.get('/:teaInput/ingredients', (req, res) => {
+    const requestedName = req.params.teaInput
+    const matchingTea = Object.values(teaDecaffined).find(tea => tea.normal ===requestedName)
+
+    if (matchingTea){
+        const teaIngredients= matchingTea.ingredients
+        res.send('The ingredients of '+`${requestedName}`+' tea are: '+teaIngredients)
+    }else{
+        res.send("Tea not found with the specified name")
+    }
+})
+app.get('/:teaInput/benefits', (req, res) => {
+    const requestedName = req.params.teaInput
+    const matchingTea = Object.values(teaDecaffined).find(tea => tea.normal ===requestedName)
+
+    if (matchingTea){
+        const teaBenefits= matchingTea.benefits
+        res.send('The benefits of '+`${requestedName}`+' tea are: '+teaBenefits)
+    }else{
+        res.send("Tea not found with the specified name")
+    }
+})
 
 //set up the application to listen on the specified port
 app.listen(port,()=>{
