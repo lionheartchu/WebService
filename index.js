@@ -17,7 +17,7 @@ const port=process.env.PORT || 3001
 app.get('/food',(req,res)=>{
     const randomFood= emoji()
     console.log('Random Food:', randomFood)
-    res.type('text/plain').send(randomFood)
+    res.type('text/plain').json(randomFood)
 })
 
 // const foodEmoji = emoji()
@@ -160,7 +160,7 @@ app.get('/',(req,res)=>{
     }
     //res.send(teaNames)
     const singleString=teaNames.join(', ')
-    res.send(singleString)
+    res.json(singleString)
 })
 
 
@@ -171,9 +171,9 @@ app.get('/name/:nameInput/procession', (req, res) => {
 
     if (matchingTea){
         const teaProcession = matchingTea.procession
-        res.send('The processing method of '+`${requestedName}`+' tea is: '+teaProcession)
+        res.json('The processing method of '+`${requestedName}`+' tea is: '+teaProcession)
     }else{
-        res.send("Tea not found with the specified name")
+        res.json("Tea not found with the specified name")
     }
 })
 app.get('/name/:nameInput/color', (req, res) => {
@@ -182,9 +182,9 @@ app.get('/name/:nameInput/color', (req, res) => {
 
     if (matchingTea){
         const teaColor = matchingTea.color
-        res.send('The tea leaves color of '+`${requestedName}`+' tea is: '+teaColor)
+        res.json('The tea leaves color of '+`${requestedName}`+' tea is: '+teaColor)
     }else{
-        res.send("Tea not found with the specified name")
+        res.json("Tea not found with the specified name")
     }
 })
 app.get('/name/:nameInput/taste', (req, res) => {
@@ -193,9 +193,9 @@ app.get('/name/:nameInput/taste', (req, res) => {
 
     if (matchingTea){
         const teaTaste = matchingTea.taste
-        res.send('The taste of '+`${requestedName}`+' tea is: '+teaTaste)
+        res.json('The taste of '+`${requestedName}`+' tea is: '+teaTaste)
     }else{
-        res.send("Tea not found with the specified name")
+        res.json("Tea not found with the specified name")
     }
 })
 app.get('/name/:nameInput/pairing', (req, res) => {
@@ -204,9 +204,9 @@ app.get('/name/:nameInput/pairing', (req, res) => {
 
     if (matchingTea){
         const teaPairing = matchingTea.pairings
-        res.send('The recommended pairing of '+`${requestedName}`+' tea is: '+teaPairing)
+        res.json('The recommended pairing of '+`${requestedName}`+' tea is: '+teaPairing)
     }else{
-        res.send("Tea not found with the specified name")
+        res.json("Tea not found with the specified name")
     }
 })
 
@@ -217,9 +217,9 @@ app.get('/:teaInput/taste', (req, res) => {
 
     if (matchingTea){
         const teaTaste= matchingTea.taste
-        res.send('The taste of '+`${requestedName}`+' tea is: '+teaTaste)
+        res.json('The taste of '+`${requestedName}`+' tea is: '+teaTaste)
     }else{
-        res.send("Tea not found with the specified name")
+        res.json("Tea not found with the specified name")
     }
 })
 app.get('/:teaInput/ingredients', (req, res) => {
@@ -228,9 +228,9 @@ app.get('/:teaInput/ingredients', (req, res) => {
 
     if (matchingTea){
         const teaIngredients= matchingTea.ingredients
-        res.send('The ingredients of '+`${requestedName}`+' tea are: '+teaIngredients)
+        res.json('The ingredients of '+`${requestedName}`+' tea are: '+teaIngredients)
     }else{
-        res.send("Tea not found with the specified name")
+        res.json("Tea not found with the specified name")
     }
 })
 app.get('/:teaInput/benefits', (req, res) => {
@@ -239,9 +239,9 @@ app.get('/:teaInput/benefits', (req, res) => {
 
     if (matchingTea){
         const teaBenefits= matchingTea.benefits
-        res.send('The benefits of '+`${requestedName}`+' tea are: '+teaBenefits)
+        res.json('The benefits of '+`${requestedName}`+' tea are: '+teaBenefits)
     }else{
-        res.send("Tea not found with the specified name")
+        res.json("Tea not found with the specified name")
     }
 })
 
