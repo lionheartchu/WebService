@@ -2,9 +2,15 @@
 import express from 'express'
 import emoji from 'random-food-emoji'
 
+import cors from 'cors'
+
 //create an instance of an express application
 const app=express()
 app.use(express.json())
+
+app.use(cors({
+    origin: '*'
+}));
 
 const port=process.env.PORT || 3001
 
