@@ -160,7 +160,7 @@ app.get('/',(req,res)=>{
     }
     //res.send(teaNames)
     const singleString=teaNames.join(', ')
-    res.json(singleString)
+    res.send(singleString)
 })
 
 
@@ -171,9 +171,9 @@ app.get('/name/:nameInput/procession', (req, res) => {
 
     if (matchingTea){
         const teaProcession = matchingTea.procession
-        res.json('The processing method of '+`${requestedName}`+' tea is: '+teaProcession)
+        res.send('The processing method of '+`${requestedName}`+' tea is: '+teaProcession)
     }else{
-        res.json("Tea not found with the specified name")
+        res.send("Tea not found with the specified name")
     }
 })
 app.get('/name/:nameInput/color', (req, res) => {
@@ -182,9 +182,9 @@ app.get('/name/:nameInput/color', (req, res) => {
 
     if (matchingTea){
         const teaColor = matchingTea.color
-        res.json('The tea leaves color of '+`${requestedName}`+' tea is: '+teaColor)
+        res.send('The tea leaves color of '+`${requestedName}`+' tea is: '+teaColor)
     }else{
-        res.json("Tea not found with the specified name")
+        res.send("Tea not found with the specified name")
     }
 })
 app.get('/name/:nameInput/taste', (req, res) => {
@@ -193,9 +193,9 @@ app.get('/name/:nameInput/taste', (req, res) => {
 
     if (matchingTea){
         const teaTaste = matchingTea.taste
-        res.json('The taste of '+`${requestedName}`+' tea is: '+teaTaste)
+        res.send('The taste of '+`${requestedName}`+' tea is: '+teaTaste)
     }else{
-        res.json("Tea not found with the specified name")
+        res.send("Tea not found with the specified name")
     }
 })
 app.get('/name/:nameInput/pairing', (req, res) => {
@@ -204,9 +204,9 @@ app.get('/name/:nameInput/pairing', (req, res) => {
 
     if (matchingTea){
         const teaPairing = matchingTea.pairings
-        res.json('The recommended pairing of '+`${requestedName}`+' tea is: '+teaPairing)
+        res.send('The recommended pairing of '+`${requestedName}`+' tea is: '+teaPairing)
     }else{
-        res.json("Tea not found with the specified name")
+        res.send("Tea not found with the specified name")
     }
 })
 
@@ -217,9 +217,9 @@ app.get('/:teaInput/taste', (req, res) => {
 
     if (matchingTea){
         const teaTaste= matchingTea.taste
-        res.json('The taste of '+`${requestedName}`+' tea is: '+teaTaste)
+        res.send('The taste of '+`${requestedName}`+' tea is: '+teaTaste)
     }else{
-        res.json("Tea not found with the specified name")
+        res.send("Tea not found with the specified name")
     }
 })
 app.get('/:teaInput/ingredients', (req, res) => {
@@ -228,9 +228,9 @@ app.get('/:teaInput/ingredients', (req, res) => {
 
     if (matchingTea){
         const teaIngredients= matchingTea.ingredients
-        res.json('The ingredients of '+`${requestedName}`+' tea are: '+teaIngredients)
+        res.send('The ingredients of '+`${requestedName}`+' tea are: '+teaIngredients)
     }else{
-        res.json("Tea not found with the specified name")
+        res.send("Tea not found with the specified name")
     }
 })
 app.get('/:teaInput/benefits', (req, res) => {
@@ -239,9 +239,9 @@ app.get('/:teaInput/benefits', (req, res) => {
 
     if (matchingTea){
         const teaBenefits= matchingTea.benefits
-        res.json('The benefits of '+`${requestedName}`+' tea are: '+teaBenefits)
+        res.send('The benefits of '+`${requestedName}`+' tea are: '+teaBenefits)
     }else{
-        res.json("Tea not found with the specified name")
+        res.send("Tea not found with the specified name")
     }
 })
 
