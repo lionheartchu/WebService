@@ -211,7 +211,7 @@ app.get('/name/:nameInput/pairing', (req, res) => {
 })
 
 //for decaffined tea
-app.get('/:teaInput/taste', (req, res) => {
+app.get('/name/:teaInput/taste', (req, res) => {
     const requestedName = req.params.teaInput
     const matchingTea = Object.values(teaDecaffined).find(tea => tea.normal ===requestedName)
 
@@ -222,7 +222,7 @@ app.get('/:teaInput/taste', (req, res) => {
         res.send("Tea not found with the specified name")
     }
 })
-app.get('/:teaInput/ingredients', (req, res) => {
+app.get('/name/:teaInput/ingredients', (req, res) => {
     const requestedName = req.params.teaInput
     const matchingTea = Object.values(teaDecaffined).find(tea => tea.normal ===requestedName)
 
@@ -233,7 +233,7 @@ app.get('/:teaInput/ingredients', (req, res) => {
         res.send("Tea not found with the specified name")
     }
 })
-app.get('/:teaInput/benefits', (req, res) => {
+app.get('/name/:teaInput/benefits', (req, res) => {
     const requestedName = req.params.teaInput
     const matchingTea = Object.values(teaDecaffined).find(tea => tea.normal ===requestedName)
 
